@@ -1,0 +1,396 @@
+// // // import http from "http";
+// // // let PORT=3000;
+// // // import url from "url";
+
+
+// // // let tasks=[
+   
+// // // ];
+// // // let id=1;
+// // // const server=http.createServer((req,res)=>{
+// // //     let path=url.parse(req.url,true);
+// // //     let method=req.method;
+// // //     // console.log(path)
+// // //     let pathName=path.pathname.split("/");
+// // //     // console.log(pathName)
+   
+    
+// // //     //post /tasks
+    
+// // //     if(method=="POST" && pathName[1]===`tasks` && pathName.length===2 ){
+// // //         let body="";
+// // //         req.on("data",(chunk)=>{
+// // //             body+=chunk.toString();
+// // //         })
+// // //         req.on('end',()=>{
+// // //             body=JSON.parse(body);
+// // //             body.id=id++;
+// // //             tasks.push(body);
+// // //             console.log(tasks);
+// // //             res.writeHead(201,{'Content-Type':'application/json'})
+// // //             res.end(JSON.stringify({message:"tasks  created ",data:body}))
+// // //         })
+// // //     }
+// // //     //get /tasks?status="pending"&property="medium"
+// // //     if(method==="GET" && pathName[1]===`tasks`&& pathName.length===2){
+// // //         res.writeHead(200,{'Content-Type':'application/json'})
+// // //         res.end(JSON.stringify({message:"get api called",data:tasks}))    
+// // //     }
+// // //     // get /tasks/1
+// // //     if(method==="GET" && pathName[1]==="tasks" && pathName.length===3){
+// // //         if(pathName[2]<=tasks.length){
+// // //             res.writeHead(200,{'Content-Type':'application/json'})
+// // //        res.end(JSON.stringify({message:"get 1st api called",data:tasks[pathName[2]-1]}))
+// // //         }
+// // //     else
+// // //     {
+// // //             res.writeHead(404,{'Content-Type':'application/json'})
+// // //             res.end(JSON.stringify({message:"api not found"}))
+// // //         }
+// // //     }
+   
+    
+// // // })
+// // // server.listen(PORT,()=>{
+// // //     console.log(`Server is running at http://localhost:${PORT}`)
+// // // })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import http from "http";
+// import url from "url"
+// const PORT=3000;
+
+// let id=1;
+// let tasks=[
+
+// ]
+
+
+// let server=http.createServer((req,res)=>{
+//     let path=url.parse(req.url,true);
+//     let PathName=path.pathname;
+//     let split=PathName.split("/");
+//     console.log(path);
+//     let method=req.method;
+//     console.log("pathname",PathName)
+//     console.log("SPLIT",split)
+//     // let path=req.url;
+    
+//     // post /tasks
+//     if(method==="POST" && split[1]==="tasks" && split.length===2){
+//         let body="";
+//         req.on("data",(chunk)=>{
+//             body=body+chunk;
+//             body=JSON.parse(body)
+//             body.id=id++;
+//             tasks.push(body);
+//             console.log("inner TAsks",tasks)
+//         })
+//         req.on("end",()=>{
+//             res.writeHead(201,{'Content-Type': 'application/json'});
+//             res.end(JSON.stringify({message:"post api called",data:body}))
+
+//     })
+//     }
+
+//     //get /tasks
+
+//     if(method==="GET" && split[1]==="tasks" && split.length===2){
+//         res.writeHead(200,{'Content-Type': 'application/json'});
+//         res.end(JSON.stringify({message:"get api called",data:tasks}))
+//     }
+  
+//     // get /tasks/2/
+
+//     if(method==="GET" && split[1]==="tasks" && split.length===3){
+//         if(split[2]<=tasks.length){
+//             res.writeHead(200,{'Content-Type': 'application/json'});
+//             res.end(JSON.stringify({message:"get api called",data:tasks[split[2]-1]}))
+//         }
+//         else{
+//             res.writeHead(404,{'Content-Type': 'application/json'});
+//             res.end(JSON.stringify({message:"Task not found"}))
+//         }
+//     }
+
+// //PUT /tasks/:id
+
+//     if(method==="PUT" && split[1]==="tasks" && split.length===3){
+//         // if(split[1]<=tasks.length){
+//         //     res.writeHead(200,{'Content-Type': 'application/json'});
+//         //     res.end(JSON.stringify({message:"get api called",data:tasks[split[2]-1]}))
+//         // }
+//         // else{
+//         //     res.writeHead(404,{'Content-Type': 'application/json'});
+//         //     res.end(JSON.stringify({message:"Task not found"}))
+//         // }
+//         let body="";
+//         req.on("data",(chunk)=>{
+//             bodY=body+chunk;
+//             // bodY=JSON.parse(bodY);
+
+//             for(let temp in tasks){
+//                 if(tasks[temp].priority==="heigh"){
+//                     for(let xyz in bodY){
+//                         tasks[temp][[xyz]=bodY[xyz]]
+//                     }
+//                 }
+//             }
+            
+            
+//         })
+        
+//     }
+//     req.on("end",()=>{
+//         res.writeHead(200,{'Content-Type': 'application/json'});
+//         res.end(JSON.stringify({message:"put api called",data:tasks}))
+//     })
+    
+
+// })
+
+// server.listen(PORT,()=>{
+//     console.log(`Server is running at http://localhost:${PORT}`)
+// })
+
+
+
+// // obj=[{
+// //     name:"jhon",
+// //     age:25,
+// //     address:"sangli",
+// //     city:"mumbai",
+// //     state:"maharashtra"
+// // },
+// // {
+// //     name:"mike",
+// //     age:30,
+// //     address:"pune",
+// //     city:"mumbai",
+// //     state:"maharashtra",
+// //     id:1
+// // },
+// // {
+// //     name:"jane",
+// //     age:28,
+// //     address:"nashik",
+// //     city:"mumbai",
+// //     state:"maharashtra",
+// //     id:2
+// // },
+// // {
+// //     name:"sara",
+// //     age:22,
+// //     address:"delhi",
+// //     city:"delhi",
+// //     state:"delhi",
+// //     id:3
+// // }
+// // ]
+
+// // let body={
+// //     name:"smith",
+// //     state:"UP",
+// //     address:"mirzal"
+// // }
+
+// // for(abc in obj){
+// //     if(obj[abc].name==="jhon"){
+// //     // console.log(obj[abc]);
+// //     // console.log(obj)
+// //     // console.log(body)
+// //     for(xyz in body){
+// //         obj[abc][xyz]=body[xyz];
+// //         console.log(obj[abc][xyz]=body[xyz])
+// //     }
+// //     }
+    
+// // }
+// // console.log(obj)
+
+
+
+
+
+
+
+
+
+
+// // arr=[
+// //     {
+// //         name:"jhon",
+// //         age:25,
+// //         address:"sangli",
+// //         city:"mumbai",
+// //         state:"maharashtra",
+// //         id:3   
+// //     },
+// // ]
+// // console.log(arr)
+
+// // body={
+// //     age:30,
+// //     city:'pune'
+// // }
+
+
+// // for(abc in arr){
+// //     if(arr[abc].age===25){
+// //         for(let xyz in body){
+// //             // arr[abc][xyz]=body[xyz]
+// //             console.log("fi",arr[abc][xyz]=body[xyz])
+// //         }
+// //     }
+// // }
+
+
+
+
+
+
+
+
+
+
+// // for(let abc in arr){
+//     //     if(arr[abc].age===25){
+// //         for(let xyz in body){
+// //             // arr[abc][xyz]=body[xyz]
+// //             console.log(arr[abc][xyz]=body[xyz])
+// //         }
+// //     }
+// // }
+
+
+
+
+
+
+
+
+
+
+// tasks.forEach((temp)=>{
+        //     if(temp.id===split[2]){
+        //         temp.assign=Body.assign;
+        //     }
+        // })
+
+
+
+// if(method==="PATCH"  && split[1]==="tasks" && split[3]==="categorize" && split.length===4){
+//     let body="";
+//     req.on("data",(chunk)=>{
+//         body=body+chunk;
+//     })
+//     req.on("end",()=>{
+//         body=JSON.parse(body);
+//         tasks.forEach((temp)=>{
+//             if(temp.id==split[2]){
+//                 temp.categorize=body.categorize
+//                 res.writeHead(200,{'Content-Type':'application/json'});
+//                 res.end(JSON.stringify({message:"priority updated",data:body}));
+//             }
+//         })
+//     })
+// }
+
+
+
+
+
+
+
+if(method==="POST" && split[1]==="tasks" && split[3]==="comments" && split.length===4){
+    let body="";
+    req.on("data",(chunk)=>{
+        body=body+chunk;
+    })
+    req.on("end",()=>{
+        body=JSON.parse(body);
+        tasks.forEach((temp)=>{
+            if(temp.id==split[2]){
+                temp.comment=body.comment;
+                res.writeHead(201,{'Content-Type':'application/json'});
+                res.end(JSON.stringify({message:"commnet task is created",data:body}))
+            }
+        })
+    })
+}
+
+
+
+
+// // arr=[
+// //     {
+// //         name:"jhon",
+// //         age:25,
+// //         address:"sangli",
+// //         city:"mumbai",
+// //         state:"maharashtra"   
+// //     },
+// //     {
+// //         name:"sara",
+// //         age:30,
+// //         address:"pune",
+// //         city:"mumbai",
+// //         state:"maharashtra"
+// //     },
+// //     {
+// //         name:"mike",
+// //         age:28,
+// //         address:"nashik",
+// //         city:"mumbai",
+// //         state:"maharashtra"
+// //     },
+// //     {
+// //         name:"tom",
+// //         age:32,
+// //         address:"nashik",
+// //         city:"mumbai",
+// //         state:"maharashtra"
+// //     }
+// // ]
+
+// // // console.log(arr[2])
+
+// // arr.forEach(element => {
+// //     for(let abc in element){
+// //       if(element[abc]===28){
+// //             element[abc]=88        
+// //       }
+// //       if(element[abc]==="tom"){
+// //         element[abc]="vrushabh"
+// //       }
+// //     }
+// // });
+// // // console.log(arr[2])
+// // console.log(arr)
